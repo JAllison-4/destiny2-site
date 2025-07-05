@@ -1,12 +1,22 @@
-# React + Vite
+# Destiny 2 Fan Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project uses **React**, **Vite** and **Material UI** to provide a clean starting point for building the Destiny&nbsp;2 fan website.
 
-Currently, two official plugins are available:
+## Available Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `npm run dev` – start the development server
+- `npm run build` – create a production build
+- `npm run preview` – preview the production build
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+  components/   reusable UI pieces (Header, Footer)
+  pages/        application pages (Home)
+  theme.js      shared Material UI theme
+  App.jsx       application layout
+  main.jsx      React entry point
+```
+
+The app renders a simple page with a header, footer and a sample Home page. Use this skeleton as a base for further development.
