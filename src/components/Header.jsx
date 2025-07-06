@@ -8,7 +8,7 @@ export default function Header() {
     <AppBar position="static" sx={{ mb: 4 }}>
       <Toolbar>
         <Typography variant="h6" component="div">
-          Destiny 2 Fan Site
+          Banshee's Terminal
         </Typography>
       </Toolbar>
     </AppBar>
