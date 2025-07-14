@@ -24,6 +24,7 @@ interface Weapon {
   slot: string;
   ammoType: string;
   image: string;
+  flavorText: string;
 }
 
 // Props for the trait card component
@@ -71,6 +72,13 @@ const GuessTheExotic: React.FC = () => {
     setTarget(random);
   }, []);
 
+  // Open win popup when hasWon becomes true
+  useEffect(() => {
+    if (hasWon) {
+      setOpenWinPopup(true);
+    }
+  }, [hasWon]);
+
   const handleGuess = () => {
     if (gameOver) return;
     const guessed = weaponsData.find(
@@ -84,7 +92,6 @@ const GuessTheExotic: React.FC = () => {
     if (target && guessed.name === target.name) {
       setHasWon(true);
       setGameOver(true);
-      setOpenWinPopup(true);
     } else if (guesses.length + 1 >= MAX_GUESSES) {
       setGameOver(true);
     }
@@ -154,7 +161,7 @@ const GuessTheExotic: React.FC = () => {
               label="Type a weapon name..."
               variant="outlined"
               fullWidth
-              disabled={hasWon}
+              disabled={gameOver}
               sx={{ mb: 2 }}
             />
           )}
@@ -163,7 +170,7 @@ const GuessTheExotic: React.FC = () => {
           variant="contained"
           fullWidth
           onClick={handleGuess}
-          disabled={guessInput.length < 1 || hasWon}
+          disabled={guessInput.length < 1 || gameOver}
         >
           Submit Guess
         </Button>
@@ -244,16 +251,29 @@ const GuessTheExotic: React.FC = () => {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <DialogContent dividers>
-          <Typography display="flex" alignItems="center">
-            <Box
-              component="img"
-              src={target.image}
-              alt={target.name}
-              sx={{ width: 40, height: 40, mr: 1 }}
-            />
-            Congrats! You correctly identified <strong>{target.name}</strong>.
+        <DialogContent dividers sx={{ textAlign: "center" }}>
+          <Box
+            component="img"
+            src={target.image}
+            alt={target.name}
+            sx={{ width: 120, height: 120, mb: 2, mx: "auto" }}
+          />
+          <Typography variant="h5" sx={{ fontWeight: "bold", mb: 1 }}>
+            {target.name}
           </Typography>
+          <Typography
+            variant="subtitle1"
+            sx={{ fontStyle: "italic", color: "grey.300" }}
+          >
+            {target.flavorText}
+          </Typography>
+          <Button
+            variant="outlined"
+            sx={{ mt: 2 }}
+            onClick={() => window.location.reload()}
+          >
+            Play Again
+          </Button>
         </DialogContent>
       </Dialog>
     </Box>

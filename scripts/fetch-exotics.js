@@ -69,6 +69,10 @@ async function fetchExotics() {
     );
     console.log(`Found ${rawExotics.length} exotic weapons`);
 
+    const exoticWeaponsOutputPath = `${OUTPUT_DIR}/ExoticWeaponsRaw.json`;
+    fs.writeFileSync(exoticWeaponsOutputPath, JSON.stringify(rawExotics, null, 2), 'utf-8');
+    console.log(`Wrote ${rawExotics.length} exotic weapons to ${exoticWeaponsOutputPath}`);
+
     // Map to final JSON structure
     const exotics = rawExotics.map(item => {
       const name = item.displayProperties.name;
@@ -99,6 +103,7 @@ async function fetchExotics() {
         slot,
         ammoType,
         image: `https://www.bungie.net${item.displayProperties.icon}`,
+        flavorText: item.flavorText || '',
       };
     });
 
