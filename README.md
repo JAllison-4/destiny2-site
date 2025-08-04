@@ -1,22 +1,49 @@
-# Destiny 2 Fan Site
+# Exotic Item Quiz App
 
-This project uses **React**, **Vite** and **Material UI** to provide a clean starting point for building the Destiny&nbsp;2 fan website.
+This project is a web-based guessing game inspired by Destiny 2 exotics. It allows users to guess exotic items by comparing traits like ammo type, slot, and elemental damage.
 
-## Available Scripts
+## Getting Started
 
-- `npm run dev` – start the development server
-- `npm run build` – create a production build
-- `npm run preview` – preview the production build
+Install dependencies:
 
-## Project Structure
-
-```
-src/
-  components/   reusable UI pieces (Header, Footer)
-  pages/        application pages (Home)
-  theme.js      shared Material UI theme
-  App.jsx       application layout
-  main.jsx      React entry point
+```bash
+npm install
 ```
 
-The app renders a simple page with a header, footer and a sample Home page. Use this skeleton as a base for further development.
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The dev server will start on localhost and reload on changes.
+
+Build the project:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Tech Stack
+
+- React
+- Vite
+- TypeScript
+- Material UI
+- Node.js / Express
+- Bungie API
+
+## Live Demo
+
+[bit.ly/exoticquiz](https://bit.ly/exoticquiz)
+
+## Known Limitations
+
+- The app is not optimized for mobile devices.
+
